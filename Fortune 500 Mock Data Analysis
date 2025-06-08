@@ -90,10 +90,10 @@ AND healthcare_benefits = 1;
 
 # Which companies have an employee tenure over 6 years but still do not receive benefits.
 
-SELECT industry, AVG(avg_employee_tenure) AS average_tenure,
-COUNT(*) AS company_count
+SELECT company_name, COUNT(*) AS company_count, AVG(avg_employee_tenure) AS average_tenure, healthcare_benefits
 FROM fortune_companies
-WHERE healthcare_benefits = 0 AND avg_employee_tenure >= 6
-GROUP BY industry
-HAVING AVG(avg_employee_tenure) >= 6;
+WHERE healthcare_benefits = 0
+GROUP BY ompany_name, healthcare_benefits
+HAVING 
+AVG(avg_employee_tenure) >= 6;
 
