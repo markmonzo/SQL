@@ -39,12 +39,13 @@ SELECT AVG (PRICE)
 FROM superstore;
 
 #SQL query that will show a statistic about the price for items in the category of "Kitchen Supplies"
-SELECT MIN ('Kitchen Supplies') , item_name , average_rating
+SELECT MIN (PRICE) , item_name , average_rating, category
 FROM superstore
-GROUP BY average_rating;
+WHERE category is 'Kitchen Supplies'
+GROUP BY price and category;
 
 #Querying the database to find which Memory Foam Mattresses from the database still had a stock of over 40 in descending order
-SELECT 'Memory Foam Mattress' , stock_quantity
+SELECT item_name , stock_quantity
 FROM superstore
-WHERE stock_quantity>40
+WHERE stock_quantity>20 and item_name is 'Memory Foam Mattress'
 ORDER BY stock_quantity desc;
