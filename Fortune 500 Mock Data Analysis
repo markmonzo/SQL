@@ -66,6 +66,19 @@ ELSE 'poor_pto'
 END AS pto_category
 FROM fortune_companies;
 
+# Expanded upon the first query and found the average paid time off per industry and sorted them by pto_rating with the average pto_total being over 17 days.
+
+SELECT industry, AVG(paid_time_off_days) AS pto_total,
+CASE
+WHEN AVG(paid_time_off_days) >=20 THEN 'Excellent'
+WHEN AVG(paid_time_off_days) >= 15 THEN 'Adequate'
+ELSE 'Poor'
+END AS pto_rating
+FROM fortune_companies
+GROUP BY industry
+HAVING pto_total >17
+ORDER BY pto_total desc;
+
 # Which Tech companies have the highest revenue in descending order.
 
 SELECT company_name, revenue, industry
