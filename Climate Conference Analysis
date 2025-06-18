@@ -1,4 +1,4 @@
---CONFERENCE DATABASE
+r--CONFERENCE DATABASE
 --LINE 129 BEGINS CODE
 
 CREATE TABLE vips (
@@ -167,7 +167,7 @@ WHERE member_since<=
 (SELECT AVG(member_since)
  FROM vips);
  
- -- JOIN query with CASE showing which VIP members have not yet rsvp'd to the welcome or dinner party. Table shows to send reminders to those who have not RSVP'D.
+ -- JOIN query with CASE showing which VIP members have not yet rsvp'd to the welcome or dinner party. Query shows to send reminders to those who have not RSVP'D.
  
  SELECT vips.member_id, reservations.dinner_rsvp, reservations.welcome_rsvp,
  CASE
